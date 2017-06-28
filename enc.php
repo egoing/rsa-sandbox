@@ -6,22 +6,19 @@ openssl_public_encrypt($_POST['plain'], $encrypted, $_POST['public']);
 <html>
 <head>
 <meta charset="utf-8">
-<style>
-textarea{
-	display:block;
-	width:100%;
-	height:100px;
-	margin-bottom:1rem;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php
+require_once 'nav.php';
+?>
+
 <form method="post" action="enc.php">
-<h1>암호화 할 텍스트</h1>
+<h2>암호화 할 텍스트</h2>
 <textarea name="plain"><?=isset($_POST['plain']) ? $_POST['plain'] : '' ?></textarea>
-<h1>공개키</h1>
+<h2>공개키</h2>
 <textarea name="public"><?=isset($_POST['public']) ? $_POST['public'] : '' ?></textarea>
-<h1>결과<h1>
+<h2>결과</h2>
 <textarea name="result"><?=base64_encode($encrypted)?></textarea>
 <input type="submit">
 </form>

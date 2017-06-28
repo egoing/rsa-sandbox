@@ -1,7 +1,7 @@
 <?php
 $config = array(
     "digest_alg" => "sha512",
-    "private_key_bits" => 4096,
+    "private_key_bits" => 2048,
     "private_key_type" => OPENSSL_KEYTYPE_RSA,
 );
     
@@ -25,20 +25,16 @@ openssl_public_encrypt($data, $encrypted, $pubKey);
 openssl_private_decrypt($encrypted, $decrypted, $privKey);
 ?>
 <html>
-<head>
-<style>
-textarea{
-	display:block;
-	width:100%;
-	height:300px;
-	margin-bottom:1rem;
-}
-</style>
-</head>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
 <body>
-<h1>public key</h1>
+<?php
+require_once "nav.php";
+?>
+<h2>public key</h2>
 <textarea><?=$pubKey?></textarea>
-<h1>private key</h1>
+<h2>private key</h2>
 <textarea><?=$privKey?></textarea>
 <body>
 </html>

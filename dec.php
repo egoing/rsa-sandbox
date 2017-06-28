@@ -6,22 +6,18 @@ openssl_private_decrypt(base64_decode($_POST['encrypted']), $decrypted, $_POST['
 <html>
 <head>
 <meta charset="utf-8">
-<style>
-textarea{
-	display:block;
-	width:100%;
-	height:200px;
-	margin-bottom:1rem;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php
+require_once 'nav.php';
+?>
 <form method="post" action="dec.php">
-<h1>암호화된  텍스트</h1>
+<h2>암호화된  텍스트</h2>
 <textarea name="encrypted"><?=isset($_POST['encrypted']) ? $_POST['encrypted'] : '' ?></textarea>
-<h1>비밀키</h1>
+<h2>비밀키</h2>
 <textarea name="privKey"><?=isset($_POST['privKey']) ? $_POST['privKey'] : '' ?></textarea>
-<h1>결과<h1>
+<h2>결과</h2>
 <textarea name="result"><?=$decrypted?></textarea>
 <input type="submit">
 </form>
