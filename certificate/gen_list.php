@@ -14,10 +14,11 @@ if(isset($_POST['data'])){
 		$mail = $row[1];
 		$enc = urlencode("$sname:$iv64");
 		$str.="$enc,$mail\n";
+		$iframe = isset($_GET['preview']) ? "<iframe src=\"1st.php?name={$enc}\"></iframe>" : '';
 		$html.="
 			<li>
 				<a href=\"1st.php?name={$enc}&download\">{$row[0]}, {$row[1]}</a>
-				<iframe src=\"1st.php?name={$enc}\"></iframe>
+				{$iframe}
 			</li>";	
 	}
 }
