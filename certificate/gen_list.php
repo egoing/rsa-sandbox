@@ -15,7 +15,8 @@ if(isset($_POST['data'])){
 		$enc = urlencode("$sname:$iv64");
 		$str.="$enc,$mail\n";
 		$html.="
-			<li><a href=\"1st.php?name={$enc}\">{$row[0]}, {$row[1]}</a>
+			<li>
+				<a href=\"1st.php?name={$enc}&download\">{$row[0]}, {$row[1]}</a>
 				<iframe src=\"1st.php?name={$enc}\"></iframe>
 			</li>";	
 	}
